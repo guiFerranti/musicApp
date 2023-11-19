@@ -1,0 +1,27 @@
+- PostgreSQL:
+	- 2 tabelas: Artista e Musica
+	- Artista: nome, tipo(Enum)
+		tipo: Solo, Duo, Banda
+	- Musica: nome, album, Artista
+
+	Fazer relação de musica e artista
+	ManyToOne musicas -> muitas musicas e um artista
+	OneToMany artista -> um artista e varias musicas
+	
+- Classes:
+	- Artista e Musica
+	
+- APIs:
+	- ChatGPT:
+		consultar dados sobre artista
+
+- Menu:
+
+	1 - Cadastrar artistas
+	2 - Cadastrar musicas (precisa existir um artista ja salvo)
+	3 - Listar musicas
+	4 - Buscar musicas por artistas
+	5 - Pesquisar sobre artista (ChatGPT)
+
+
+
