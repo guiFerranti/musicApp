@@ -5,6 +5,7 @@ import com.guilherme.MusicApp.models.Musica;
 import com.guilherme.MusicApp.models.Tipo;
 import com.guilherme.MusicApp.repository.ArtistRepository;
 import com.guilherme.MusicApp.repository.MusicRepository;
+import com.guilherme.MusicApp.services.ChatGpt;
 
 import java.util.List;
 import java.util.Scanner;
@@ -88,11 +89,7 @@ public class Main {
     }
 
     private void buscarMusicaPorArtista() {
-        List<Artista> artistas = artistRepository.findAll();
-        artistas.forEach(a -> System.out.println("Artista: " + a.getNome()));
-        System.out.println("\nQual artista voce escolhe?");
-        String artista = scanner.nextLine();
-        Artista artist = artistRepository.acharArtista(artista);
+        Artista artist =  selecionarArtistas();
         System.out.println("Qual o nome da musica?");
         String nomeMus = scanner.nextLine();
 //        List<Musica> musicas = musicRepository.musicasPorArtista(artist.getId());
@@ -102,7 +99,19 @@ public class Main {
     }
 
     private void buscarInformacoesDoArtista(){
-        //
+        Artista artist = selecionarArtistas();
+
+        String info = ChatGpt.infoArtista(artist.getNome());
+        System.out.println(info);
+    }
+
+    private Artista selecionarArtistas(){
+        List<Artista> artistas = artistRepository.findAll();
+        artistas.forEach(a -> System.out.println("Artista: " + a.getNome()));
+        System.out.println("\nQual artista voce escolhe?");
+        String artista = scanner.nextLine();
+        Artista artist = artistRepository.acharArtista(artista);
+        return artist;
     }
 
 }
