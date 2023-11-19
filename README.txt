@@ -15,12 +15,5 @@ Praticaremos derived queries e JPQL para verificar se o artista já está cadast
 Faremos a integração com a API do ChatGPT para buscar informações sobre um determinado artista.
 Bom desafio!
 
-1 - cad art
-2 - cad mus
-3 - list mus
-4 - buscar mus por art
-5 - pesq sobre art
-
-9 sair
 
 https://cursos.alura.com.br/course/java-persistencia-dados-consultas-spring-data-jpa/task/139811

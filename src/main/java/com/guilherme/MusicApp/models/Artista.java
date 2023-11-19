@@ -2,6 +2,9 @@ package com.guilherme.MusicApp.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "artistas")
 public class Artista {
@@ -12,6 +15,9 @@ public class Artista {
     private String nome;
     @Enumerated(EnumType.STRING)
     private Tipo tipo;
+
+    @OneToMany(mappedBy = "artista", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Musica> musicas = new ArrayList<>();
 
     public Artista(){}
 
